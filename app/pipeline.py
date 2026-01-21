@@ -61,17 +61,39 @@ def stage_2_research(blueprint: dict) -> dict:
 
 def stage_3_outline(data: dict) -> dict:
     print("🧱 Stage 3: Outline Architect")
-    return {**data, "outline": "placeholder outline"}
+
+    system = load_prompt("outline_architect.system")
+    raw = call_llm(system, json.dumps(data, ensure_ascii=False))
+
+    outline_obj = safe_json(raw, "Stage 3")
+    outline_value = outline_obj["outline"] if isinstance(outline_obj, dict) and "outline" in outline_obj else outline_obj
+
+    return {**data, "outline": outline_value}
 
 
 def stage_4_draft(data: dict) -> dict:
     print("✍️ Stage 4: Draft Writer")
-    return {**data, "draft": "placeholder draft"}
+
+    system = load_prompt("draft_writer.system")
+    raw = call_llm(system, json.dumps(data, ensure_ascii=False))
+
+    draft_obj = safe_json(raw, "Stage 4")
+    draft_value = draft_obj["draft"] if isinstance(draft_obj, dict) and "draft" in draft_obj else draft_obj
+
+    return {**data, "draft": draft_value}
 
 
 def stage_5_qa(data: dict) -> dict:
     print("✅ Stage 5: QA Reviewer")
-    return {**data, "qa": "passed"}
+
+    system = load_prompt("qa_reviewer.system")
+    raw = call_llm(system, json.dumps(data, ensure_ascii=False))
+
+    qa_obj = safe_json(raw, "Stage 5")
+    qa_value = qa_obj["qa"] if isinstance(qa_obj, dict) and "qa" in qa_obj else qa_obj
+
+    return {**data, "qa": qa_value}
+
 
 
 def write_output(data: dict, output_dir: str = "data/output", filename: str = "result.json") -> str:
