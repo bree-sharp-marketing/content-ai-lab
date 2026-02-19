@@ -20,6 +20,12 @@ Avoid absolute claims about internal policies or operations (confidentiality, pr
   - "Our proven process" → needs evidence of track record
 - When in doubt, soften or cut. It's better to sound honest than overconfident.
 
+PRICING CLAIMS RULE
+Do not mention pricing structure (fixed fee, modular, free, per-project, retainer, etc.) unless it is explicitly provided in input_facts. If no pricing info exists, remove all pricing language — do not invent or imply a model.
+
+TESTIMONIAL CLAIMS RULE
+Do not claim what "clients say," "clients mention," "clients praise," or any variation unless direct quotes or testimonials are provided in input_facts. If no testimonials exist, remove all client-sentiment language. Do not fabricate implied endorsements.
+
 OUTCOME ANCHOR RULE
 Every time the draft claims an outcome, it must be anchored to an example KPI category. If you find a vague outcome claim, rewrite it with a measurable anchor.
 - "streamlined operations" → "streamlined operations (e.g., reduced manual processing time)"

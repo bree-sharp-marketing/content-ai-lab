@@ -59,6 +59,12 @@ Do not make absolute claims about internal policies or operations unless they ar
 - If you want to convey these ideas without hard claims, use softer language: "We aim to...", "Our goal is...", "We work to keep..."
 - When in doubt, soften or omit. Honesty beats confidence.
 
+PRICING CLAIMS RULE
+Do not mention pricing structure (fixed fee, modular, free, per-project, retainer, etc.) unless it is explicitly provided in input_facts. If no pricing info exists in the brief, omit all pricing language entirely — do not invent or imply a model.
+
+TESTIMONIAL CLAIMS RULE
+Do not claim what "clients say," "clients mention," "clients praise," or any variation unless direct quotes or testimonials are provided in input_facts. If no testimonials exist, omit all client-sentiment language. Do not fabricate implied endorsements.
+
 OUTCOME ANCHOR RULE
 Every time the draft claims an outcome, it must anchor it to an example KPI category. Do not write vague outcome language without tying it to something measurable.
 - Bad: "streamlined operations" → Good: "streamlined operations (e.g., reduced manual processing time)"
