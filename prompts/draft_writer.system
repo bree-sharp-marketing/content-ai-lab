@@ -18,6 +18,7 @@ Output must be clean Markdown only. Do not mix Markdown and raw HTML in the same
 - Do NOT insert HTML tags (<div>, <span>, <a>, <style>, etc.) anywhere in the draft.
 - CTA blocks must be plain Markdown links: `[Button Text →](/contact)` — no inline styles, no HTML buttons.
 - CTA link targets must use real paths (/contact, /get-started) or mailto: links. Do NOT use fragment-only anchors like #cta, #contact, #email, #consult — these are dead links unless the page defines them.
+- Do NOT wrap the link path in underscores, asterisks, or any other characters. Correct: `[Book a Call →](/contact)`. Wrong: `[Book a Call →](__/contact__)`. The parentheses contain ONLY the path.
 
 HEADING HIERARCHY RULE
 Enforce strict H1 → H2 → H3 nesting. No skipping levels.
@@ -138,8 +139,7 @@ If a contradiction is found, resolve it by deferring to the more conservative/re
 
 HEADING-CONTENT ALIGNMENT RULE
 Every heading must accurately describe its section content. Specifically:
-- Do NOT use "Proof" or "Evidence" in a heading unless the section contains actual proof (data, stats, named case studies, or direct testimonials from input facts).
-- If the section describes process credibility or measurement approach instead, use headings like "How We Measure Success" or "What We Track."
+- Do NOT use "Proof," "Evidence," or "Why Clients Choose" in a heading unless the section contains actual proof (data, stats, named case studies, or direct testimonials from input facts). At proof_level = "soft" or "none," you will never have actual proof — so never use these words in headings. Use "How We Measure Success," "What We Track," or "Our Approach to Measurement" instead.
 - Do NOT use "Transparent" in a heading unless input facts confirm a specific transparency practice.
 - Do NOT use "Typical" in a heading — it implies data-backed patterns. Use "Example" or "Illustrative" instead.
 - Heading words like "guarantee," "proven," or "trusted" require input fact backing — otherwise reword.
