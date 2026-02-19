@@ -10,20 +10,20 @@ Return ONLY valid JSON with:
 
 # Agents (Draft)
 
-## Agent 1 — Brief Interpreter
+## Agent 1 — Brief Interpreter (Stage 1)
 Purpose: Convert a messy brief into a structured blueprint.
 
-## Agent 2 — Research Collector
-Purpose: Build an evidence pack + “verify needed” flags.
+## Agent 2 — Research Collector (Stage 2)
+Purpose: Build an evidence pack + "verify needed" flags.
 
-## Agent 3 — Outline Architect
+## Agent 3 — Outline Architect (Stage 3)
 Purpose: Produce a detailed SEO outline only (no drafting).
 
-## Agent 4 — Draft Writer (Constrained)
+## Agent 4 — Draft Writer (Stage 4)
 Purpose: Draft using only outline + evidence + blueprint. No invention.
 
-## Agent 5 — Voice Harmonizer
-Purpose: Improve flow/tone without changing meaning.
+## Agent 5 — Voice Harmonizer (Stage 5)
+Purpose: Improve flow/tone without changing meaning. Does NOT add, remove, or restructure content.
 
-## Agent 6 — QA Reviewer
+## Agent 6 — QA Reviewer (Stage 6)
 Purpose: Check structure, intent match, verify flags, and style compliance.

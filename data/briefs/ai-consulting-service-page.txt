@@ -1,0 +1,78 @@
+You are writing a website content page for BT Web Group.
+
+TASK
+Write a content page for: "BT Web Group AI Consulting Services" that converts qualified business decision-makers into consultation/inquiry submissions.
+
+AUDIENCE
+Business owners, COOs, Ops Directors, CMOs, and marketing leaders at mid-market or scaling SMBs who want practical AI outcomes without hype. They care about ROI, risk, and clear deliverables.
+
+PRIMARY POSITIONING
+Strategy-first AI consulting that turns business objectives into realistic AI use cases + a clear implementation roadmap. AI is not the product; business outcomes are.
+
+TONE
+Clear, grounded, warm, confident. Plain English. Minimal jargon. Short sentences. Strong verbs. No motivational poster voice. No "big consulting brochure" voice.
+
+HARD CONSTRAINTS (DO NOT VIOLATE)
+1) Do NOT invent: named clients, industries not provided, numeric outcomes (%, $, time saved), awards, certifications, partnerships, or "success stories."
+2) Do NOT write generic hype intros about AI changing the world.
+3) Avoid these phrases entirely:
+   - "In today's"
+   - "rapidly evolving landscape"
+   - "unlock the power"
+   - "cut through the hype"
+   - "one-size-fits-all"
+   - "future-proof"
+   - "revolutionize"
+   - "transform"
+   - "best-in-class"
+   - "synergy"
+   - "robust"
+   - "leveraging"
+4) Do NOT repeat the same claim in multiple sections with slightly different wording. Each section must add new information.
+
+PROOF POLICY
+Use proof_level = "soft".
+- "soft" means: allowed: "Case studies available upon request" and "Typical outcomes include..." (no numbers).
+
+PAGE TYPE
+page_type = "service_page".
+- "service_page" means: fuller explanation, process, deliverables, FAQs.
+
+DRAFT MODE
+draft_mode = "publish".
+- "internal" means: keep [VERIFY] and [PLACEHOLDER] markers for human review, consolidate them in an "Inputs Needed" section at the end.
+- "publish" means: no [VERIFY] or [PLACEHOLDER] tags anywhere. Write around unconfirmed items with safe, general language. Output must be ready to publish as-is.
+
+OUTPUT FORMAT
+Write in clean, HTML-ready Markdown.
+- Use H1 once.
+- Use H2 for major sections, H3 for sub-sections.
+- Keep paragraphs under 4 lines.
+- Use bullets for skimmability where helpful.
+- Include 2 CTA blocks: one near the top, one near the bottom.
+- Include ONE comparison block: either a short bullet comparison OR a short table-like section using bullets (but not an actual table).
+
+REQUIRED STRUCTURE (service_page)
+1) H1 + subhead (practical outcomes, strategy-first)
+2) What we do (clear, early)
+3) Strategy-first vs tool-first comparison block (single block)
+4) Services (deliverables-forward) — include:
+   - AI Readiness Assessment
+   - Use Case Discovery + Prioritization
+   - Roadmap + Implementation Plan
+   - Pilot support + measurement
+   - Adoption support (training/change management)
+5) Process (step-by-step) — each step includes a deliverable
+6) What you'll walk away with (tangible outputs list)
+7) Risk, privacy, and practicality (address concerns directly)
+8) Proof section (must follow PROOF POLICY)
+9) FAQs (short, real)
+10) Final CTA (what happens next, simple)
+
+EXAMPLES (allowed, but must stay generic)
+You may include 3–5 example use cases as examples only, framed as "Examples include:" and NOT as completed client work. Examples should be realistic for business operations and marketing.
+
+INPUT FACTS (use only these as "facts"; do not add new facts)
+No additional input facts provided.
+
+NOW WRITE THE PAGE.

@@ -76,13 +76,14 @@ def stage_3_outline(data: Dict[str, Any], dry_run: bool = False) -> Dict[str, An
     if dry_run:
         return {**data, "outline": "placeholder outline"}
 
-    # If you want Stage 3 prompt-driven later, you can add:
-    # system = load_prompt("outline_architect.system")
-    # raw = call_llm(system, json.dumps(data))
-    # outline_obj = safe_json(raw, "Stage 3")
-    # return {**data, "outline": outline_obj["outline"]}
+    system = load_prompt("outline_architect.system")
+    raw = call_llm(system, json.dumps(data))
+    outline_obj = safe_json(raw, "Stage 3")
 
-    return {**data, "outline": "placeholder outline"}
+    if "outline" not in outline_obj:
+        raise ValueError(f"Stage 3 JSON missing 'outline' key.\nReturned:\n{outline_obj}")
+
+    return {**data, "outline": outline_obj["outline"]}
 
 
 def stage_4_draft(data: Dict[str, Any], dry_run: bool = False) -> Dict[str, Any]:
@@ -91,24 +92,111 @@ def stage_4_draft(data: Dict[str, Any], dry_run: bool = False) -> Dict[str, Any]
     if dry_run:
         return {**data, "draft": "placeholder draft"}
 
-    return {**data, "draft": "placeholder draft"}
+    system = load_prompt("draft_writer.system")
+    raw = call_llm(system, json.dumps(data))
+    draft_obj = safe_json(raw, "Stage 4")
+
+    if "draft" not in draft_obj:
+        raise ValueError(f"Stage 4 JSON missing 'draft' key.\nReturned:\n{draft_obj}")
+
+    return {**data, "draft": draft_obj["draft"]}
 
 
-def stage_5_qa(data: Dict[str, Any], dry_run: bool = False) -> Dict[str, Any]:
-    print("✅ Stage 5: QA Reviewer")
+def stage_5_voice_harmonizer(data: Dict[str, Any], dry_run: bool = False) -> Dict[str, Any]:
+    print("🎵 Stage 5: Voice Harmonizer")
+
+    if dry_run:
+        return data  # draft stays as-is in dry run
+
+    system = load_prompt("voice_harmonizer.system")
+    raw = call_llm(system, json.dumps(data))
+    harmonized_obj = safe_json(raw, "Stage 5")
+
+    if "draft" not in harmonized_obj:
+        raise ValueError(f"Stage 5 JSON missing 'draft' key.\nReturned:\n{harmonized_obj}")
+
+    return {**data, "draft": harmonized_obj["draft"]}
+
+
+def stage_6_qa(data: Dict[str, Any], dry_run: bool = False) -> Dict[str, Any]:
+    print("✅ Stage 6: QA Reviewer")
 
     if dry_run:
         return {**data, "qa": "passed"}
 
-    return {**data, "qa": "passed"}
+    system = load_prompt("qa_reviewer.system")
+    raw = call_llm(system, json.dumps(data))
+    qa_obj = safe_json(raw, "Stage 6")
+
+    if "qa" not in qa_obj:
+        raise ValueError(f"Stage 6 JSON missing 'qa' key.\nReturned:\n{qa_obj}")
+
+    return {**data, "qa": qa_obj["qa"]}
+
+
+def write_draft_md(data: Dict[str, Any], output_dir: str) -> str:
+    """Save just the draft as a clean, readable Markdown file."""
+    draft_path = os.path.join(output_dir, "draft.md")
+    draft = data.get("draft", "")
+    with open(draft_path, "w", encoding="utf-8") as f:
+        f.write(draft)
+    print(f"📝 Wrote draft:   {draft_path}")
+    return draft_path
+
+
+def write_summary_md(data: Dict[str, Any], output_dir: str) -> str:
+    """Save a full summary with metadata + the draft content."""
+    summary_path = os.path.join(output_dir, "summary.md")
+    sections = []
+
+    sections.append("# Pipeline Summary\n")
+
+    if data.get("objective"):
+        sections.append(f"**Objective:** {data['objective']}\n")
+    if data.get("audience"):
+        sections.append(f"**Audience:** {data['audience']}\n")
+    if data.get("primary_goal"):
+        sections.append(f"**Primary Goal:** {data['primary_goal']}\n")
+
+    if data.get("research"):
+        sections.append("---\n")
+        sections.append("## Research Notes\n")
+        sections.append(f"{data['research']}\n")
+
+    if data.get("outline"):
+        sections.append("---\n")
+        sections.append("## Outline\n")
+        sections.append(f"{data['outline']}\n")
+
+    if data.get("draft"):
+        sections.append("---\n")
+        sections.append("## Draft\n")
+        sections.append(f"{data['draft']}\n")
+
+    if data.get("qa"):
+        sections.append("---\n")
+        sections.append("## QA Review\n")
+        sections.append(f"{data['qa']}\n")
+
+    with open(summary_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(sections))
+    print(f"📋 Wrote summary: {summary_path}")
+    return summary_path
 
 
 def write_output(data: Dict[str, Any], output_dir: str) -> str:
     os.makedirs(output_dir, exist_ok=True)
+
+    # Raw JSON (full pipeline data)
     out_path = os.path.join(output_dir, "result.json")
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
-    print(f"\n📦 Wrote output: {out_path}")
+    print(f"\n📦 Wrote JSON:    {out_path}")
+
+    # Human-readable files
+    write_draft_md(data, output_dir)
+    write_summary_md(data, output_dir)
+
     return out_path
 
 
@@ -148,10 +236,15 @@ def run_pipeline(
     else:
         print("⏭️  Skipping Stage 4")
 
-    if should_run(5, "stage_5_qa", skip_stages):
-        data = stage_5_qa(data, dry_run=dry_run)
+    if should_run(5, "stage_5_voice_harmonizer", skip_stages):
+        data = stage_5_voice_harmonizer(data, dry_run=dry_run)
     else:
         print("⏭️  Skipping Stage 5")
+
+    if should_run(6, "stage_6_qa", skip_stages):
+        data = stage_6_qa(data, dry_run=dry_run)
+    else:
+        print("⏭️  Skipping Stage 6")
 
     write_output(data, output_dir)
 
