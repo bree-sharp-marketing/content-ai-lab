@@ -21,6 +21,28 @@ def post_process_draft(draft: str) -> str:
     # Strip underscore wrappers from CTA link paths:
     # (__/contact__) → (/contact)
     draft = re.sub(r'\(_{1,3}/([^)]+?)_{1,3}\)', r'(/\1)', draft)
+
+    # Replace "Proof" in any H2/H3 heading with safe alternative
+    # Catches: "## Proof & ...", "## Proof:", "## Proof and ...", etc.
+    def fix_proof_heading(m):
+        hashes = m.group(1)
+        title = m.group(2)
+        # Remove "Proof" and clean up connectors
+        cleaned = re.sub(r'\bProof\b\s*[&:]\s*', '', title, flags=re.IGNORECASE)
+        cleaned = re.sub(r'\bProof\b', '', cleaned, flags=re.IGNORECASE).strip()
+        if not cleaned:
+            cleaned = "How We Measure Success"
+        return f"{hashes} {cleaned}"
+    draft = re.sub(r'^(#{2,3})\s+(.+)$', lambda m: fix_proof_heading(m) if re.search(r'\bproof\b', m.group(2), re.IGNORECASE) else m.group(0), draft, flags=re.MULTILINE)
+
+    # Replace "typically" with "often" everywhere (case-insensitive)
+    draft = re.sub(r'\bTypically\b', 'Often', draft)
+    draft = re.sub(r'\btypically\b', 'often', draft)
+
+    # Strip "Free " from CTA labels unless brief confirms free consultation
+    # [Book Your Free Consultation →] → [Book Your Consultation →]
+    draft = re.sub(r'\[([^\]]*?)\bFree\s+', r'[\1', draft)
+
     return draft
 
 
