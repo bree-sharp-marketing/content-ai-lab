@@ -18,5 +18,6 @@ def call_llm(system_prompt: str, user_prompt: str) -> str:
         model=MODEL,
         instructions=system_prompt,
         input=user_prompt,
+        max_output_tokens=16000,
     )
     return response.output_text

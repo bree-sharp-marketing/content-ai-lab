@@ -12,8 +12,15 @@ from app.llm import call_llm
 def safe_json(raw: str, stage: str) -> Any:
     try:
         return json.loads(raw)
-    except json.JSONDecodeError:
-        raise ValueError(f"{stage} returned invalid JSON:\n{raw}")
+    except json.JSONDecodeError as e:
+        # Show the tail of the response to help diagnose truncation
+        tail = raw[-300:] if len(raw) > 300 else raw
+        raise ValueError(
+            f"{stage} returned invalid JSON.\n"
+            f"Parse error: {e}\n"
+            f"Response length: {len(raw)} chars\n"
+            f"Last 300 chars:\n...{tail}"
+        )
 
 
 def post_process_draft(draft: str) -> str:
@@ -42,6 +49,37 @@ def post_process_draft(draft: str) -> str:
     # Strip "Free " from CTA labels unless brief confirms free consultation
     # [Book Your Free Consultation →] → [Book Your Consultation →]
     draft = re.sub(r'\[([^\]]*?)\bFree\s+', r'[\1', draft)
+
+    # Replace "Typical" in headings with "Example"
+    draft = re.sub(
+        r'^(#{2,3})\s+(.*)(\bTypical\b)(.*)',
+        lambda m: f"{m.group(1)} {m.group(2)}Example{m.group(4)}",
+        draft, flags=re.MULTILINE
+    )
+
+    # Strip "no obligation" / "no-obligation" from body text
+    draft = re.sub(r'no[- ]obligation,?\s*', '', draft, flags=re.IGNORECASE)
+
+    # Soften "within weeks" timeline promises
+    draft = re.sub(
+        r'within weeks',
+        'on a timeline we confirm during kickoff',
+        draft, flags=re.IGNORECASE
+    )
+
+    # Soften "We do not access or use your data without your explicit approval"
+    draft = re.sub(
+        r'We do not access or use your data without your explicit approval',
+        'We only access data you approve, and we confirm data handling expectations at the start of the engagement',
+        draft
+    )
+
+    # Soften "Every engagement includes [training/adoption]" scope claims
+    draft = re.sub(
+        r'Every engagement includes (adoption|training|rollout)[^.]*\.',
+        'Adoption resources and training guides are available when rollout support is in scope.',
+        draft, flags=re.IGNORECASE
+    )
 
     return draft
 

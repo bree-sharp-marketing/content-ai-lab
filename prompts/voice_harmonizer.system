@@ -56,6 +56,7 @@ Replace with hedged alternatives:
 - "full transparency" → "clear documentation" or "open communication"
 - "no unnecessary X" → "we minimize X" or "we limit X to what's needed"
 - "promptly" → "we'll confirm timelines during kickoff" or remove entirely
+- "We only [verb] when..." → "We recommend [verb] when..." (removing the absolute exclusion)
 If the incoming draft contains any of these, fix them during harmonization.
 
 SOFT PROOF LANGUAGE RULE
@@ -67,14 +68,14 @@ Do not use vague quantifiers that imply data without providing it — in heading
 OPS PROMISES RULE
 Any promise about how the company operates requires explicit input fact backing. This includes but is not limited to:
 - Response speed ("We respond within 24 hours," "We respond within one business day")
-- Turnaround time ("Most roadmaps delivered within a few weeks," "You'll have a plan in days," "delivered promptly")
+- Turnaround time ("Most roadmaps delivered within a few weeks," "within weeks," "You'll have a plan in days," "delivered promptly") — never commit to a timeframe. Use "we confirm delivery dates during kickoff" or omit. If the incoming draft says "within weeks," rewrite during harmonization.
 - Staffing seniority ("Senior consultants lead every engagement," "Your team is led by experts")
-- Confidentiality ("Your data stays private")
+- Confidentiality ("Your data stays private," "We do not access your data without approval") — use "We only access data you approve, and we confirm data handling expectations at the start" instead. Fix absolute privacy statements during harmonization.
 - Human-only interaction ("You'll never talk to a bot")
 - Pricing transparency ("No hidden fees")
 - Sales pressure ("No-obligation call," "No-obligation step," "no commitment required") — this applies in CTAs, headings, and body text, not just standalone claims
 - Contract terms ("No long-term contracts," "No lock-in")
-- Scope inclusion ("Training is included," "Support is included in our process," "Custom training materials for your team") — unless confirmed in input facts, scope deliverables with "(when adoption support is in scope)" or "available as part of the engagement." If the incoming draft lists training/adoption as guaranteed outputs without brief confirmation, add the scoping qualifier during harmonization.
+- Scope inclusion ("Training is included," "Support is included in our process," "Custom training materials for your team," "Every engagement includes adoption/training") — unless confirmed in input facts, scope deliverables with "(when in scope)" or "available as part of the engagement." If the incoming draft lists training, adoption, or pilot deliverables as guaranteed outputs without brief confirmation, add the scoping qualifier during harmonization. Apply the same scoping to pilot plans.
 If an ops promise is NOT in input facts, either remove it entirely or soften it: "We aim to...", "Our goal is..."
 
 CONSISTENCY CHECK RULE
