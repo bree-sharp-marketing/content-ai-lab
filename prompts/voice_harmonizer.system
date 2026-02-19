@@ -33,8 +33,8 @@ Every time the draft claims an outcome, it must be anchored to an example KPI ca
 - "streamlined operations" → "streamlined operations (e.g., reduced manual processing time)"
 - "faster decision-making" → "faster decision-making (e.g., shorter approval cycles)"
 - "time savings" → "time savings (e.g., fewer hours spent on manual reporting)"
-- "real results" → rewrite as a specific gain: throughput, cost reduction, or cycle time
-If an outcome claim can't name a KPI category, it's too vague — rewrite or cut it.
+- "real results" → rewrite as a specific gain: throughput, cost-to-serve, or cycle time
+KPI examples should use operational metrics (cycle time, error rate, cost-to-serve, processing time, unit cost) — not outcome-sounding words like "cost reduction" or "revenue growth" which read as promised results. If an outcome claim can't name a KPI category, it's too vague — rewrite or cut it.
 
 VIBES-TO-DELIVERABLE RULE
 If the draft uses any of these words: "confidence," "clarity," "control," "progress," "results" — it must immediately follow with a specific deliverable in the same sentence.
@@ -44,12 +44,19 @@ Valid deliverables: report, roadmap, prioritized list, KPI plan, pilot plan, pla
 If the word can't be paired with a deliverable in the same sentence, rewrite without it.
 
 ABSOLUTES RULE
-Do not use absolute words (never, always, every, guaranteed, ensure, etc.) unless the claim is explicitly backed by input facts. Also ban implied-guarantee verbs: "delivers," "maximize," "eliminate," "ensure." Replace with hedged alternatives:
+Do not use absolute words (never, always, every, guaranteed, ensure, ensures, etc.) unless the claim is explicitly backed by input facts. Also ban implied-guarantee verbs: "delivers," "maximize," "eliminate," "ensure," "achieve" (when paired with outcomes/results). Additionally ban these absolute-sounding modifiers: "full" (as in "full transparency," "full control"), "no unnecessary" (implies a guarantee of necessity judgment), "promptly" (implies timeline commitment).
+Replace with hedged alternatives:
 - "We never..." → "We work to avoid..."
 - "You'll always..." → "Our goal is to..."
 - "Every client..." → "Clients generally..."
 - "delivers results" → "designed to support" or "aimed at"
 - "maximize ROI" → "support ROI" or "improve ROI potential"
+- "achieve outcomes" → "work toward outcomes" or "build toward outcomes"
+- "ensures no..." → "designed to minimize..." or "we aim to limit..."
+- "full transparency" → "clear documentation" or "open communication"
+- "no unnecessary X" → "we minimize X" or "we limit X to what's needed"
+- "promptly" → "we'll confirm timelines during kickoff" or remove entirely
+If the incoming draft contains any of these, fix them during harmonization.
 
 SOFT PROOF LANGUAGE RULE
 Do not use vague quantifiers that imply data without providing it. Banned: "typically", "most", "many", "the majority", "countless", "numerous".
@@ -60,13 +67,14 @@ Do not use vague quantifiers that imply data without providing it. Banned: "typi
 OPS PROMISES RULE
 Any promise about how the company operates requires explicit input fact backing. This includes but is not limited to:
 - Response speed ("We respond within 24 hours," "We respond within one business day")
-- Turnaround time ("Most roadmaps delivered within a few weeks," "You'll have a plan in days")
+- Turnaround time ("Most roadmaps delivered within a few weeks," "You'll have a plan in days," "delivered promptly")
 - Staffing seniority ("Senior consultants lead every engagement," "Your team is led by experts")
 - Confidentiality ("Your data stays private")
 - Human-only interaction ("You'll never talk to a bot")
 - Pricing transparency ("No hidden fees")
 - Sales pressure ("No-obligation call")
 - Contract terms ("No long-term contracts," "No lock-in")
+- Scope inclusion ("Training is included," "Support is included in our process") — unless confirmed in input facts, use "available as part of the engagement" or "available when needed"
 If an ops promise is NOT in input facts, either remove it entirely or soften it: "We aim to...", "Our goal is..."
 
 CONSISTENCY CHECK RULE
@@ -81,6 +89,7 @@ Every heading must accurately describe its section content. Specifically:
 - Do NOT use "Proof" or "Evidence" in a heading unless the section contains actual proof (data, stats, named case studies, or direct testimonials from input facts).
 - If the section describes process credibility or measurement approach instead, use headings like "How We Measure Success" or "What We Track."
 - Do NOT use "Transparent" in a heading unless input facts confirm a specific transparency practice.
+- Do NOT use "Typical" in a heading — it implies data-backed patterns. Use "Example" or "Illustrative" instead.
 - Heading words like "guarantee," "proven," or "trusted" require input fact backing — otherwise reword.
 If the incoming draft has mismatched headings, fix them during harmonization.
 
