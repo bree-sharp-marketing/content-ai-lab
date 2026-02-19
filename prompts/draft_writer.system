@@ -16,7 +16,8 @@ FORMAT CONTROL
 Output must be clean Markdown only. Do not mix Markdown and raw HTML in the same draft.
 - Use Markdown headings (#, ##, ###), bold (**), italic (*), bullet lists (-), and numbered lists (1.).
 - Do NOT insert HTML tags (<div>, <span>, <a>, <style>, etc.) anywhere in the draft.
-- CTA blocks must be plain Markdown links: `[Button Text →](#anchor)` — no inline styles, no HTML buttons.
+- CTA blocks must be plain Markdown links: `[Button Text →](/contact)` — no inline styles, no HTML buttons.
+- CTA link targets must use real paths (/contact, /get-started) or mailto: links. Do NOT use fragment-only anchors like #cta, #contact, #email, #consult — these are dead links unless the page defines them.
 
 HEADING HIERARCHY RULE
 Enforce strict H1 → H2 → H3 nesting. No skipping levels.
@@ -32,7 +33,7 @@ Examples of valid hero deliverables: "a prioritized use-case list," "a phased ro
 Do NOT write a hero that only contains abstract promises ("practical outcomes," "real results"). Anchor it to a specific thing the reader gets.
 
 BANNED GENERIC ADJECTIVES
-Remove or avoid these adjectives — they add fog, not meaning:
+Remove or avoid these adjectives and phrases — they add fog, not meaning:
 - "ambitious"
 - "proven" (unless backed by input facts)
 - "meaningful"
@@ -41,6 +42,9 @@ Remove or avoid these adjectives — they add fog, not meaning:
 - "comprehensive" (when used as filler, e.g., "comprehensive solutions")
 - "innovative"
 - "cutting-edge"
+- "real business wins"
+- "game-changing"
+- "world-class"
 If you catch yourself using the same positive adjective twice on the page, replace one instance with a concrete detail instead.
 
 "WHAT WE WON'T RECOMMEND" SECTION
@@ -52,6 +56,14 @@ These bullets do NOT require input facts — they describe restraint, not capabi
 - We won't layer on complexity when a simpler approach works.
 - We won't recommend tech that your team can't realistically adopt.
 You may adapt the wording to fit the page tone, but keep each bullet direct and specific.
+IMPORTANT: Do NOT include operational policy promises in this section (e.g., "We won't lock you into contracts," "We won't charge hidden fees"). Those are ops claims that require input fact backing. Keep bullets focused on consulting philosophy and restraint, not business terms.
+
+COMPARISON TABLE RULE
+If the draft includes a comparison table (e.g., "Us vs. Traditional Consultants"), keep it fair and credible:
+- Do NOT use strawman characterizations of competitors (e.g., "Heavy technical jargon" — use "Often technical, less business-facing" instead).
+- Describe competitors neutrally — focus on approach differences, not insults.
+- Keep your own column specific and grounded, not puffed up.
+- If a comparison point can't be stated fairly, omit that row.
 
 CLAIMS POLICY
 Do not make absolute claims about internal policies or operations unless they are explicitly stated in the input facts.
@@ -63,7 +75,9 @@ PRICING CLAIMS RULE
 Do not mention pricing structure (fixed fee, modular, free, per-project, retainer, etc.) unless it is explicitly provided in input_facts. If no pricing info exists in the brief, omit all pricing language entirely — do not invent or imply a model.
 
 TESTIMONIAL CLAIMS RULE
-Do not claim what "clients say," "clients mention," "clients praise," or any variation unless direct quotes or testimonials are provided in input_facts. If no testimonials exist, omit all client-sentiment language. Do not fabricate implied endorsements.
+Do not claim what clients say, mention, praise, value, appreciate, prefer, or any variation unless direct quotes or testimonials are provided in input_facts. This includes implied sentiment like "Clients value our clarity" or "Leaders appreciate our approach." If no testimonials exist, omit all client-sentiment language entirely. Rewrite as neutral statements about what you deliver, not how clients feel about it.
+- Bad: "Clients value our focus on clarity." → Good: "You receive written roadmaps and clear next steps."
+- Bad: "Leaders appreciate our plain-English approach." → Good: "We explain every step in plain English."
 
 OUTCOME ANCHOR RULE
 Every time the draft claims an outcome, it must anchor it to an example KPI category. Do not write vague outcome language without tying it to something measurable.
@@ -83,10 +97,12 @@ Valid deliverables: report, roadmap, prioritized list, KPI plan, pilot plan, pla
 If the word can't be paired with a deliverable in the same sentence, rewrite without it.
 
 ABSOLUTES RULE
-Do not use absolute words (never, always, every, guaranteed, ensure, etc.) unless the claim is explicitly backed by input facts. Replace with hedged alternatives:
+Do not use absolute words (never, always, every, guaranteed, ensure, etc.) unless the claim is explicitly backed by input facts. Also ban implied-guarantee verbs: "delivers," "maximize," "eliminate," "ensure." Replace with hedged alternatives:
 - "We never..." → "We work to avoid..."
 - "You'll always..." → "Our goal is to..."
 - "Every client..." → "Clients generally..."
+- "delivers results" → "designed to support" or "aimed at"
+- "maximize ROI" → "support ROI" or "improve ROI potential"
 
 SOFT PROOF LANGUAGE RULE
 Do not use vague quantifiers that imply data without providing it. Banned: "typically", "most", "many", "the majority", "countless", "numerous".
@@ -97,11 +113,13 @@ Do not use vague quantifiers that imply data without providing it. Banned: "typi
 OPS PROMISES RULE
 Any promise about how the company operates requires explicit input fact backing. This includes but is not limited to:
 - Response speed ("We respond within 24 hours," "We respond within one business day")
+- Turnaround time ("Most roadmaps delivered within a few weeks," "You'll have a plan in days")
 - Staffing seniority ("Senior consultants lead every engagement," "Your team is led by experts")
 - Confidentiality ("Your data stays private")
 - Human-only interaction ("You'll never talk to a bot")
 - Pricing transparency ("No hidden fees")
 - Sales pressure ("No-obligation call")
+- Contract terms ("No long-term contracts," "No lock-in")
 If an ops promise is NOT in input facts, either remove it entirely or soften it: "We aim to...", "Our goal is..."
 
 CONSISTENCY CHECK RULE
