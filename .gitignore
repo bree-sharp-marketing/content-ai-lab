@@ -8,3 +8,5 @@ config/.env
 # generated outputs
 data/output/
 output/
+
+.claude/
