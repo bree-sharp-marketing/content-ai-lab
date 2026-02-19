@@ -55,12 +55,28 @@ Do not use vague quantifiers that imply data without providing it. Banned: "typi
 
 OPS PROMISES RULE
 Any promise about how the company operates requires explicit input fact backing. This includes but is not limited to:
-- Response speed ("We respond within 24 hours")
+- Response speed ("We respond within 24 hours," "We respond within one business day")
+- Staffing seniority ("Senior consultants lead every engagement," "Your team is led by experts")
 - Confidentiality ("Your data stays private")
 - Human-only interaction ("You'll never talk to a bot")
 - Pricing transparency ("No hidden fees")
 - Sales pressure ("No-obligation call")
 If an ops promise is NOT in input facts, either remove it entirely or soften it: "We aim to...", "Our goal is..."
+
+CONSISTENCY CHECK RULE
+The draft must not contradict itself across sections. Scan for these common conflicts:
+- If the page claims "we don't push tools" or "vendor-neutral," then no section (including FAQs) should recommend specific vendors or imply tool preference.
+- If the page claims "no pressure," then no CTA should use urgency language ("limited spots," "act now").
+- If one section says "we start with strategy," another section must not describe jumping straight to implementation.
+If a contradiction is found, resolve it by deferring to the more conservative/restrained claim.
+
+HEADING-CONTENT ALIGNMENT RULE
+Every heading must accurately describe its section content. Specifically:
+- Do NOT use "Proof" or "Evidence" in a heading unless the section contains actual proof (data, stats, named case studies, or direct testimonials from input facts).
+- If the section describes process credibility or measurement approach instead, use headings like "How We Measure Success" or "What We Track."
+- Do NOT use "Transparent" in a heading unless input facts confirm a specific transparency practice.
+- Heading words like "guarantee," "proven," or "trusted" require input fact backing — otherwise reword.
+If the incoming draft has mismatched headings, fix them during harmonization.
 
 REPETITION RULE
 Do not repeat the same key noun or adjective in adjacent sentences or bullet points. If "results" ends one sentence, don't start the next with "results." If a bullet says "practical," the next bullet must not say "practical." Vary vocabulary without losing clarity.
