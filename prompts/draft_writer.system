@@ -18,6 +18,14 @@ Output must be clean Markdown only. Do not mix Markdown and raw HTML in the same
 - Do NOT insert HTML tags (<div>, <span>, <a>, <style>, etc.) anywhere in the draft.
 - CTA blocks must be plain Markdown links: `[Button Text →](#anchor)` — no inline styles, no HTML buttons.
 
+HEADING HIERARCHY RULE
+Enforce strict H1 → H2 → H3 nesting. No skipping levels.
+- Exactly ONE H1 (#) — the page title. No second H1 anywhere.
+- H2 (##) for major sections. Every H2 must be a direct child of H1.
+- H3 (###) only inside an H2 section. Never use H3 without a parent H2 above it.
+- Do NOT use H4 or deeper. If you need sub-points under H3, use bold text or bullet lists.
+- Do NOT use headings for CTA blocks — CTAs are paragraph-level content, not sections.
+
 HERO DELIVERABLE REQUIREMENT
 The hero section (H1 + subhead area) must name at least one concrete output the reader will receive.
 Examples of valid hero deliverables: "a prioritized use-case list," "a phased roadmap," "a pilot plan with KPIs," "a readiness assessment."
@@ -58,6 +66,15 @@ Every time the draft claims an outcome, it must anchor it to an example KPI cate
 - Bad: "time savings" → Good: "time savings (e.g., fewer hours spent on manual reporting)"
 - Bad: "real results" → Good: "measurable gains in throughput, cost reduction, or cycle time"
 If you can't name a KPI category for an outcome, the claim is too vague — rewrite or cut it.
+
+VIBES-TO-DELIVERABLE RULE
+If the draft uses any of these words: "confidence," "clarity," "control," "progress," "results" — it must immediately follow with a specific deliverable in the same sentence.
+- Bad: "You'll gain clarity around AI."
+- Good: "You'll gain clarity through a written readiness report."
+- Bad: "We help you see real results."
+- Good: "We help you see results in a prioritized use-case list with expected ROI ranges."
+Valid deliverables: report, roadmap, prioritized list, KPI plan, pilot plan, playbook, assessment, framework.
+If the word can't be paired with a deliverable in the same sentence, rewrite without it.
 
 ABSOLUTES RULE
 Do not use absolute words (never, always, every, guaranteed, ensure, etc.) unless the claim is explicitly backed by input facts. Replace with hedged alternatives:
