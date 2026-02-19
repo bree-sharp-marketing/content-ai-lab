@@ -55,7 +55,7 @@ def main():
         skip_stages=set(args.skip or []),
     )
 
-    print("\n📦 Final output:")
+    print("\nFinal output:")
     print(result)
 
 

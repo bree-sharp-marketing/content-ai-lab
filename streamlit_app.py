@@ -33,7 +33,7 @@ from app.pipeline import (
 # ---------------------------------------------------------------------------
 st.set_page_config(
     page_title="BT AI Lab",
-    page_icon="🧪",
+    page_icon="BT",
     layout="wide",
 )
 

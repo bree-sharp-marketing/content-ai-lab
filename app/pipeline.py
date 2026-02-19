@@ -2,6 +2,7 @@
 
 import json
 import os
+import re
 from typing import Any, Dict, Set
 
 from prompts import load_prompt
@@ -13,6 +14,14 @@ def safe_json(raw: str, stage: str) -> Any:
         return json.loads(raw)
     except json.JSONDecodeError:
         raise ValueError(f"{stage} returned invalid JSON:\n{raw}")
+
+
+def post_process_draft(draft: str) -> str:
+    """Fix known LLM formatting quirks that resist prompt-level correction."""
+    # Strip underscore wrappers from CTA link paths:
+    # (__/contact__) → (/contact)
+    draft = re.sub(r'\(_{1,3}/([^)]+?)_{1,3}\)', r'(/\1)', draft)
+    return draft
 
 
 def env_skip(stage_num: int) -> bool:
@@ -32,7 +41,7 @@ def should_run(stage_num: int, fn_name: str, skip_stages: Set[str]) -> bool:
 
 
 def stage_1_brief_interpreter(brief: str, dry_run: bool = False) -> Dict[str, Any]:
-    print("🧠 Stage 1: Brief Interpreter (AI)")
+    print("Stage 1: Brief Interpreter (AI)")
 
     if dry_run:
         return {
@@ -54,7 +63,7 @@ def stage_1_brief_interpreter(brief: str, dry_run: bool = False) -> Dict[str, An
 
 
 def stage_2_research(blueprint: Dict[str, Any], dry_run: bool = False) -> Dict[str, Any]:
-    print("🔍 Stage 2: Research Collector")
+    print("Stage 2: Research Collector")
 
     if dry_run:
         return {**blueprint, "research": "placeholder research"}
@@ -71,7 +80,7 @@ def stage_2_research(blueprint: Dict[str, Any], dry_run: bool = False) -> Dict[s
 
 
 def stage_3_outline(data: Dict[str, Any], dry_run: bool = False) -> Dict[str, Any]:
-    print("🧱 Stage 3: Outline Architect")
+    print("Stage 3: Outline Architect")
 
     if dry_run:
         return {**data, "outline": "placeholder outline"}
@@ -87,7 +96,7 @@ def stage_3_outline(data: Dict[str, Any], dry_run: bool = False) -> Dict[str, An
 
 
 def stage_4_draft(data: Dict[str, Any], dry_run: bool = False) -> Dict[str, Any]:
-    print("✍️ Stage 4: Draft Writer")
+    print("Stage 4: Draft Writer")
 
     if dry_run:
         return {**data, "draft": "placeholder draft"}
@@ -99,11 +108,11 @@ def stage_4_draft(data: Dict[str, Any], dry_run: bool = False) -> Dict[str, Any]
     if "draft" not in draft_obj:
         raise ValueError(f"Stage 4 JSON missing 'draft' key.\nReturned:\n{draft_obj}")
 
-    return {**data, "draft": draft_obj["draft"]}
+    return {**data, "draft": post_process_draft(draft_obj["draft"])}
 
 
 def stage_5_voice_harmonizer(data: Dict[str, Any], dry_run: bool = False) -> Dict[str, Any]:
-    print("🎵 Stage 5: Voice Harmonizer")
+    print("Stage 5: Voice Harmonizer")
 
     if dry_run:
         return data  # draft stays as-is in dry run
@@ -115,11 +124,11 @@ def stage_5_voice_harmonizer(data: Dict[str, Any], dry_run: bool = False) -> Dic
     if "draft" not in harmonized_obj:
         raise ValueError(f"Stage 5 JSON missing 'draft' key.\nReturned:\n{harmonized_obj}")
 
-    return {**data, "draft": harmonized_obj["draft"]}
+    return {**data, "draft": post_process_draft(harmonized_obj["draft"])}
 
 
 def stage_6_qa(data: Dict[str, Any], dry_run: bool = False) -> Dict[str, Any]:
-    print("✅ Stage 6: QA Reviewer")
+    print("Stage 6: QA Reviewer")
 
     if dry_run:
         return {**data, "qa": "passed"}
@@ -140,7 +149,7 @@ def write_draft_md(data: Dict[str, Any], output_dir: str) -> str:
     draft = data.get("draft", "")
     with open(draft_path, "w", encoding="utf-8") as f:
         f.write(draft)
-    print(f"📝 Wrote draft:   {draft_path}")
+    print(f"Wrote draft:   {draft_path}")
     return draft_path
 
 
@@ -180,7 +189,7 @@ def write_summary_md(data: Dict[str, Any], output_dir: str) -> str:
 
     with open(summary_path, "w", encoding="utf-8") as f:
         f.write("\n".join(sections))
-    print(f"📋 Wrote summary: {summary_path}")
+    print(f"Wrote summary: {summary_path}")
     return summary_path
 
 
@@ -191,7 +200,7 @@ def write_output(data: Dict[str, Any], output_dir: str) -> str:
     out_path = os.path.join(output_dir, "result.json")
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
-    print(f"\n📦 Wrote JSON:    {out_path}")
+    print(f"\nWrote JSON:    {out_path}")
 
     # Human-readable files
     write_draft_md(data, output_dir)
@@ -212,41 +221,41 @@ def run_pipeline(
     if skip_stages is None:
         skip_stages = set()
 
-    print("\n🚀 Running AI Content Pipeline\n")
+    print("\nRunning AI Content Pipeline\n")
 
     data: Dict[str, Any] = {}
 
     if should_run(1, "stage_1_brief_interpreter", skip_stages):
         data = stage_1_brief_interpreter(brief, dry_run=dry_run)
     else:
-        print("⏭️  Skipping Stage 1")
+        print("Skipping Stage 1")
 
     if should_run(2, "stage_2_research", skip_stages):
         data = stage_2_research(data, dry_run=dry_run)
     else:
-        print("⏭️  Skipping Stage 2")
+        print("Skipping Stage 2")
 
     if should_run(3, "stage_3_outline", skip_stages):
         data = stage_3_outline(data, dry_run=dry_run)
     else:
-        print("⏭️  Skipping Stage 3")
+        print("Skipping Stage 3")
 
     if should_run(4, "stage_4_draft", skip_stages):
         data = stage_4_draft(data, dry_run=dry_run)
     else:
-        print("⏭️  Skipping Stage 4")
+        print("Skipping Stage 4")
 
     if should_run(5, "stage_5_voice_harmonizer", skip_stages):
         data = stage_5_voice_harmonizer(data, dry_run=dry_run)
     else:
-        print("⏭️  Skipping Stage 5")
+        print("Skipping Stage 5")
 
     if should_run(6, "stage_6_qa", skip_stages):
         data = stage_6_qa(data, dry_run=dry_run)
     else:
-        print("⏭️  Skipping Stage 6")
+        print("Skipping Stage 6")
 
     write_output(data, output_dir)
 
-    print("\n🎉 Pipeline complete\n")
+    print("\nPipeline complete\n")
     return data
