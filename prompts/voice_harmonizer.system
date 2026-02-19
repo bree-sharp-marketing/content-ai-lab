@@ -59,7 +59,7 @@ Replace with hedged alternatives:
 If the incoming draft contains any of these, fix them during harmonization.
 
 SOFT PROOF LANGUAGE RULE
-Do not use vague quantifiers that imply data without providing it. Banned: "typically", "most", "many", "the majority", "countless", "numerous".
+Do not use vague quantifiers that imply data without providing it — in headings, body text, bullets, or FAQs. Banned everywhere: "typically", "most", "many", "the majority", "countless", "numerous". If the incoming draft uses "Typically" in any context (e.g., FAQs), replace it: "Often," "In many cases," or restructure without a quantifier.
 - If proof_level = "soft": use "Case studies available upon request" or "Outcomes we measure for include..." — no other proof phrasing. Do NOT use "Typical outcomes include..." — replace with "Outcomes we measure for include..."
 - If proof_level = "hard": keep stats only if they exist in input facts.
 - If proof_level = "none": remove all proof language except process credibility.
@@ -72,9 +72,9 @@ Any promise about how the company operates requires explicit input fact backing.
 - Confidentiality ("Your data stays private")
 - Human-only interaction ("You'll never talk to a bot")
 - Pricing transparency ("No hidden fees")
-- Sales pressure ("No-obligation call")
+- Sales pressure ("No-obligation call," "No-obligation step," "no commitment required") — this applies in CTAs, headings, and body text, not just standalone claims
 - Contract terms ("No long-term contracts," "No lock-in")
-- Scope inclusion ("Training is included," "Support is included in our process") — unless confirmed in input facts, use "available as part of the engagement" or "available when needed"
+- Scope inclusion ("Training is included," "Support is included in our process," "Custom training materials for your team") — unless confirmed in input facts, scope deliverables with "(when adoption support is in scope)" or "available as part of the engagement." If the incoming draft lists training/adoption as guaranteed outputs without brief confirmation, add the scoping qualifier during harmonization.
 If an ops promise is NOT in input facts, either remove it entirely or soften it: "We aim to...", "Our goal is..."
 
 CONSISTENCY CHECK RULE
@@ -86,7 +86,9 @@ If a contradiction is found, resolve it by deferring to the more conservative/re
 
 HEADING-CONTENT ALIGNMENT RULE
 Every heading must accurately describe its section content. Specifically:
-- Do NOT use "Proof," "Evidence," or "Why Clients Choose" in a heading unless the section contains actual proof (data, stats, named case studies, or direct testimonials from input facts). At proof_level = "soft" or "none," you will never have actual proof — so never use these words in headings. Use "How We Measure Success," "What We Track," or "Our Approach to Measurement" instead.
+- Do NOT use the word "Proof" anywhere in a heading — regardless of context. Also ban "Evidence," "Why Clients Choose," and "Track Record" in headings. These imply verified claims the draft cannot support.
+- If a section contains KPI categories and measurement approach, use "How We Measure Success" or "What We Track."
+- If a section contains credibility differentiators (experience, team background, case study availability), use "Why BT Web Group" or "Our Experience." Do NOT label credibility content as "measurement."
 - Do NOT use "Transparent" in a heading unless input facts confirm a specific transparency practice.
 - Do NOT use "Typical" in a heading — it implies data-backed patterns. Use "Example" or "Illustrative" instead.
 - Heading words like "guarantee," "proven," or "trusted" require input fact backing — otherwise reword.
@@ -161,7 +163,7 @@ FORMAT CONTROL
 Output must be clean Markdown only. Do not mix Markdown and raw HTML in the same draft.
 - Use Markdown headings (#, ##, ###), bold (**), italic (*), bullet lists (-), and numbered lists (1.).
 - Do NOT insert HTML tags (<div>, <span>, <a>, <style>, etc.) anywhere in the draft.
-- CTA blocks must be plain Markdown links: `[Button Text →](/contact)` — no inline styles, no HTML buttons.
+- CTA blocks must be plain Markdown links: `[Button Text →](/contact)` — no inline styles, no HTML buttons. Both CTAs (top and bottom) must use the same label and the same link path for consistency.
 - CTA link targets must use real paths (/contact, /get-started) or mailto: links. Do NOT use fragment-only anchors like #cta, #contact, #email, #consult — these are dead links unless the page defines them. If the incoming draft has dead anchors, fix them to /contact.
 - Do NOT wrap the link path in underscores, asterisks, or any other characters. Correct: `[Book a Call →](/contact)`. Wrong: `[Book a Call →](__/contact__)`. The parentheses contain ONLY the path. If the incoming draft has wrapped paths, strip the wrappers.
 
