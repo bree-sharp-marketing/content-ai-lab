@@ -10,7 +10,8 @@ Stages (default order):
 2. **stage_2_research** → adds structured research notes
 3. **stage_3_outline** → creates an outline
 4. **stage_4_draft** → writes a draft
-5. **stage_5_qa** → checks for alignment + completeness
+5. **stage_5_voice_harmonizer** → tightens tone and flow while preserving meaning
+6. **stage_6_qa** → checks for alignment, completeness, and style compliance
 
 Outputs a JSON file at `data/output/result.json` by default.
 
